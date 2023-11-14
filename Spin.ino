@@ -43,12 +43,12 @@ byte LEDPinArray[LED_NUMBER]    =   {   LED_PIN_0,
 ////////////////////////////////////////////////////////////////////////////////
 // Var
 ////////////////////////////////////////////////////////////////////////////////
-int buttonPlayState             =   0;                                          // Var for reading the pushbutton play status
-int buttonResetState            =   0;                                          // Var for reading the pushbutton reset status
-int ledState                    =   0;                                          // Var for reading the led status
-int exitFlag                    =   0;                                          // Exit loop flag
-int score                       =   0;                                          // Score
-int goal                        =   10;                                         // Goal to reached
+int buttonPlayState             =       0;                                      // Var for reading the pushbutton play status
+int buttonResetState            =       0;                                      // Var for reading the pushbutton reset status
+int ledState                    =       0;                                      // Var for reading the led status
+int exitFlag                    =       0;                                      // Exit loop flag
+int score                       =       0;                                      // Score
+int goal                        =       10;                                     // Goal to reached
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
