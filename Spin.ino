@@ -10,19 +10,21 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONST
 ////////////////////////////////////////////////////////////////////////////////
+
 // Declaration of pin numbers
-const int LED_PIN_0             =       2;                                      // LED 0
-const int LED_PIN_1             =       3;                                      // LED 1
-const int LED_PIN_2             =       4;                                      // LED 2
-const int LED_PIN_3             =       5;                                      // LED 3
-const int LED_PIN_4             =       6;                                      // LED 4
-const int LED_PIN_5             =       7;                                      // LED 5
-const int LED_PIN_6             =       8;                                      // LED 6
-const int LED_PIN_7             =       9;                                      // LED 7
-const int LED_PIN_8             =       10;                                     // LED 8
-const int LED_PIN_9             =       11;                                     // LED 9
-const int buttonPinPlay         =       13;                                     // BUTTON PLAY
-const int buttonPinReset        =       12;                                     // BUTTON RESET
+#define LED_PIN_0                       2                                       // LED 0
+#define LED_PIN_1                       4                                       // LED 1
+#define LED_PIN_2                       6                                       // LED 2
+#define LED_PIN_3                       7                                       // LED 3
+#define LED_PIN_4                       8                                       // LED 4
+#define LED_PIN_5                       9                                       // LED 5
+#define LED_PIN_6                       10                                      // LED 6
+#define LED_PIN_7                       11                                      // LED 7
+#define LED_PIN_8                       12                                      // LED 8
+#define LED_PIN_9                       13                                      // LED 9
+#define buttonPinPlay                   3                                       // BUTTON PLAY
+#define buttonPinReset                  5                                       // BUTTON RESET
+
 const int LED_NUMBER            =       10;                                     // TOTAL LED
 
 // Create an array of the LED
@@ -45,7 +47,8 @@ int buttonPlayState     =   0;                                                  
 int buttonResetState    =   0;                                                  // Var for reading the pushbutton reset status
 int ledState            =   0;                                                  // Var for reading the led status
 int exitFlag            =   0;                                                  // Exit loop flag
-int score               =   10;                                                 // Score
+int score               =   0;                                                  // Score
+int goal                =   10;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
@@ -55,7 +58,7 @@ void setup()
     // Set pinMode Output for all LED
     for (int i = 0; i < LED_NUMBER; i++) {
         pinMode(LEDPinArray[i], OUTPUT);
-    }
+    } // End For loop
 
     // Start Serial monitor
     Serial.begin(9600);
@@ -64,7 +67,7 @@ void setup()
     pinMode(buttonPinPlay, INPUT);
     pinMode(buttonPinReset, INPUT);
 
-    attachInterrupt(digitalPinToInterrupt(buttonPinPlay), blink, HIGH);
+    attachInterrupt(digitalPinToInterrupt(buttonPinPlay), Interrupt_Stop_Button, RISING);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -72,77 +75,11 @@ void setup()
 ////////////////////////////////////////////////////////////////////////////////
 void loop()
 {
+    goal = 10;
     Start_Waiting();
-
-     for (int i = 0; i < LED_NUMBER; i++){
-        digitalWrite(LEDPinArray[i], LOW);
-     }
-     delay(500);
-
-     for (int i = 0; i < 3; i++){
-        for (int i = 0; i < LED_NUMBER; i++){
-            digitalWrite(LEDPinArray[i], HIGH);
-        }
-        delay(500);
-        for (int i = 0; i < LED_NUMBER; i++){
-            digitalWrite(LEDPinArray[i], LOW);
-        }
-        delay(500);
-     }
-
-
-
-
-     digitalWrite(LEDPinArray[9], HIGH);
-
-     do{
-        for (int i = 0; i < score; i++){
-            digitalWrite(LEDPinArray[i],HIGH);
-            buttonPlayState = digitalRead(buttonPinPlay);
-            if( i==score-1 && buttonPlayState==HIGH){
-                score--;
-                break;
-            }
-            else if( i != score-1 && buttonPlayState==HIGH){
-                exitFlag = 1;
-            }
-            else if( i == score-1){
-                exitFlag = 1;
-            }
-            delay(300);
-            digitalWrite(LEDPinArray[i],LOW);
-        }
-     } while (exitFlag==0);
-  
-  	digitalWrite(LEDPinArray[9], HIGH);
-
-     do{
-        for (int i = 0; i < LED_NUMBER+1; i++){
-            buttonResetState=digitalRead(buttonPinReset);
-            if (buttonResetState==HIGH){
-                exitFlag=0;
-                buttonPlayState=LOW;
-                break;
-            }
-            if (i>=score){
-                digitalWrite(LEDPinArray[i],HIGH);
-            }
-        }
-        delay(1500);
-        for (int i = 0; i < LED_NUMBER+1; i++){
-            if (buttonResetState==HIGH){
-                exitFlag=0;
-                buttonPlayState=LOW;
-                break;
-            }
-
-            if (i>=score){
-                digitalWrite(LEDPinArray[i],LOW);
-            }            
-        }
-       delay(1500);
-     } while (exitFlag==1);
-
+    Starting_Blink();
+    Game();
+    Game_Over();    
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -168,14 +105,128 @@ void Start_Waiting(){
                 delay(100);
             }
         } // end for loop
-     } while(exitFlag == 0); // end while loop
+    } while(exitFlag == 0); // end while loop
 } // End Start_Waiting
 
-void blink(){
-    exitFlag=1;
-    do {
-        digitalWrite(LEDPinArray[0],HIGH);
-        delay(1000);
-        digitalWrite(LEDPinArray[0],LOW);
-    } while (true);
+////////////////////////////////////////////////////////////////////////////////
+// Starting_Blink
+////////////////////////////////////////////////////////////////////////////////
+void Starting_Blink(){
+
+    // Reset all LED statement
+    for (int i = 0; i < LED_NUMBER; i++){
+        digitalWrite(LEDPinArray[i], LOW);
+    } // End For loop
+
+    // Pause
+    delay(500);
+
+    // Blink all LED 3 times
+    for (int i = 0; i < 3; i++){
+
+        // Turn on LEDs
+        for (int i = 0; i < LED_NUMBER; i++){
+            digitalWrite(LEDPinArray[i], HIGH);
+        } // End For loop
+
+        // Pause
+        delay(500);
+
+        // Turn off LEDs
+        for (int i = 0; i < LED_NUMBER; i++){
+            digitalWrite(LEDPinArray[i], LOW);
+        } // End For loop
+
+        // Pause
+        delay(500);
+     } // End For loop
+} // End Starting_Blink
+
+////////////////////////////////////////////////////////////////////////////////
+// Game
+////////////////////////////////////////////////////////////////////////////////
+void Game(){
+    
+    // Set exitFlag to 0
+    exitFlag = 0;
+
+    // Set score to 0
+    score = 0;
+
+    // Turn on last LED
+    digitalWrite(LEDPinArray[9], HIGH);
+
+    // Start game
+    do{
+
+        // Foreach led under the goal
+        for (int i = 0; i < goal; i++){
+
+            // if the stop button was pressed at good time:
+            // - Highlight the goal -1 led.
+            // - Then, set the flag to 0
+            // - Then, decrease the goal
+            // - Then increase the score
+            // - Then break the for loop
+            if( i==goal-1 && exitFlag==1){
+                digitalWrite(LEDPinArray[i-1],HIGH);
+                exitFlag=0;
+                goal--;
+                score++;
+                break;
+            } // End if
+
+            // Else if the button was pressed but the goal is not reached, 
+            // or if the button wasn't pressed but the goal is reached,
+            // break the for loop and go to the Gameover "screen"
+            else if( (i != goal-1 && exitFlag==1) || (i == goal-1)){
+                exitFlag = 1;
+                break;
+            } // End Else if
+
+            // Blink the current LED
+            digitalWrite(LEDPinArray[i],HIGH);
+            delay(1000);            
+            digitalWrite(LEDPinArray[i],LOW);
+        } // End For loop
+
+     } while (exitFlag==0); // End do while loop
+} // End Game
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Game_Over
+////////////////////////////////////////////////////////////////////////////////
+void Game_Over(){
+    exitFlag = 0;
+
+    // Reset all LED statement
+    for (int i = 0; i < LED_NUMBER; i++){
+        digitalWrite(LEDPinArray[i], LOW);
+    } // End For loop
+
+    // Pause
+    delay(500);
+
+    do{
+        // Turn on LEDs
+        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++){
+            digitalWrite(LEDPinArray[i], HIGH);
+        } // End For loop
+
+        // Pause
+        delay(500);
+
+        // Turn off LEDs
+        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++){
+            digitalWrite(LEDPinArray[i], LOW);
+        } // End For loop
+
+        // Pause
+        delay(500);
+    } while (exitFlag==0);
+}
+
+void Interrupt_Stop_Button(){
+    exitFlag = 1;
 }
