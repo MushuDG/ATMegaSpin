@@ -5,7 +5,7 @@
 // Project:            ATMegaSpin
 // File:               Spin.ino
 // Creation date:      14 novembre 2023
-// Description:        Script managing the game
+// Description:        Program managing the game
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 // CONST
@@ -63,7 +63,7 @@ void setup()
     // Start Serial monitor
     Serial.begin(9600);
 
-    //Set buttons as input
+    // Set buttons as input
     pinMode(buttonPinPlay, INPUT);
     pinMode(buttonPinReset, INPUT);
 
@@ -80,7 +80,7 @@ void loop()
     Starting_Blink();
     Game();
     Game_Over();    
-}
+} // End loop
 
 ////////////////////////////////////////////////////////////////////////////////
 // Start_Waiting
@@ -227,6 +227,9 @@ void Game_Over(){
     } while (exitFlag==0);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Interrupt_Stop_Button
+////////////////////////////////////////////////////////////////////////////////
 void Interrupt_Stop_Button(){
     exitFlag = 1;
 }
