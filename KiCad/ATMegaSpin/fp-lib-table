@@ -1,0 +1,11 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "footprints")(type "KiCad")(uri "${KIPRJMOD}/ATMEGA328P_PU/footprints.pretty")(options "")(descr ""))
+  (lib (name "TS02_66_60_BK_160_LCR_D")(type "KiCad")(uri "${KIPRJMOD}/TS02_66_60_BK_160_LCR_D.pretty")(options "")(descr ""))
+  (lib (name "ATMEGA328P_PU")(type "KiCad")(uri "${KIPRJMOD}/ATMEGA328P_PU/ATMEGA328P_PU.pretty")(options "")(descr ""))
+  (lib (name "CF18JT200R")(type "KiCad")(uri "${KIPRJMOD}/CF18JT200R/CF18JT200R.pretty")(options "")(descr ""))
+  (lib (name "ED281DT")(type "KiCad")(uri "${KIPRJMOD}/ED281DT.pretty")(options "")(descr ""))
+  (lib (name "HLMP_4700")(type "KiCad")(uri "${KIPRJMOD}/HLMP_4700/HLMP_4700.pretty")(options "")(descr ""))
+  (lib (name "TS02")(type "KiCad")(uri "${KIPRJMOD}/TS02_66_60_BK_160_LCR_D/TS02_66_60_BK_160_LCR_D.pretty/TS02.pretty")(options "")(descr ""))
+  (lib (name "ED2181DT")(type "KiCad")(uri "${KIPRJMOD}/ED281DT/ED281DT.pretty")(options "")(descr ""))
+)
