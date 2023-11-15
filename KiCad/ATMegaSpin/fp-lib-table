@@ -8,4 +8,6 @@
   (lib (name "HLMP_4700")(type "KiCad")(uri "${KIPRJMOD}/HLMP_4700/HLMP_4700.pretty")(options "")(descr ""))
   (lib (name "TS02")(type "KiCad")(uri "${KIPRJMOD}/TS02_66_60_BK_160_LCR_D/TS02_66_60_BK_160_LCR_D.pretty/TS02.pretty")(options "")(descr ""))
   (lib (name "ED2181DT")(type "KiCad")(uri "${KIPRJMOD}/ED281DT/ED281DT.pretty")(options "")(descr ""))
+  (lib (name "MFS101D_6_Z")(type "KiCad")(uri "${KIPRJMOD}/MFS101D_6_Z.pretty")(options "")(descr ""))
+  (lib (name "Library")(type "KiCad")(uri "${KIPRJMOD}/MFS101D_6_Z/KiCADv6/Library.pretty")(options "")(descr ""))
 )
