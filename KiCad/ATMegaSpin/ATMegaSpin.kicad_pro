@@ -428,7 +428,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "../../ATMegaSpin.step",
+      "step": "../../3DModel/ATMegaSpin.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
