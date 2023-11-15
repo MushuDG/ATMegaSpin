@@ -25,6 +25,8 @@ Stop the LED which precedes the last LED
 | 6  | BS-7-ND‎<br>BS-7‎<br>BATT HLDR COIN 20MM 1 CEL PC PIN                                           | Digikey  | 10       | Fr. 0.84100 | Fr. 8.41000  |
 | 7  | CF18JT200RCT-ND‎<br>‎CF18JT200R‎<br>RES 200 OHM 5% 1/8W AXIAL                                   | Digikey  | 50       | Fr. 0.02260 | Fr. 1.13000  |
 | 8  | ‎516-1325-ND‎<br>‎HLMP-4700‎<br>LED RED DIFFUSED T-1 3/4 T/H                                    | Digikey  | 50       | Fr. 0.34600 | Fr. 17.30000 |
-| 9  | PCB JLCPCB                                                                                      | JLCPCB   | 5        | Fr. 1.84000 | Fr. 9.20000  |
+| 9  | MFS101D-6-Z                                                                                     | Digikey  | 5        | Fr. 1.52000 | Fr. 7.60000  |
+| 10 | PCB JLCPCB                                                                                      | JLCPCB   | 5        | Fr. 1.84000 | Fr. 9.20000  |
 |    |                                                                                                 |          |          |             |              |
-|    | Aprox. Total                                                                                    |          |          |             | Fr. 55.09    |
+|    | Aprox. Total                                                                                    |          |          |             | Fr. 62.69    |
+|    | Aprox. Total/pcs                                                                                |          |          |             | Fr. 12.54    |
