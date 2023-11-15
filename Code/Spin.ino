@@ -49,6 +49,7 @@ int ledState                    =       0;                                      
 int exitFlag                    =       0;                                      // Exit loop flag
 int score                       =       0;                                      // Score
 int goal                        =       10;                                     // Goal to reached
+int delaySpeed                  =       1000;                                   // Define the speed game
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
@@ -76,6 +77,7 @@ void setup()
 void loop()
 {
     goal = 10;
+    delaySpeed = 1000;
     Start_Waiting();
     Starting_Blink();
     Game();
@@ -186,10 +188,11 @@ void Game(){
 
             // Blink the current LED
             digitalWrite(LEDPinArray[i],HIGH);
-            delay(1000);            
+            delay(delaySpeed);            
             digitalWrite(LEDPinArray[i],LOW);
         } // End For loop
 
+        delaySpeed=delaySpeed-100;
      } while (exitFlag==0); // End do while loop
 } // End Game
 
