@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "ATMegaSpin")
+    (date "2023-11-15")
+    (rev "1")
+    (company "MushuDG-Electronic")
+  )
+
   (lib_symbols
     (symbol "2023-11-14_15-01-25:HLMP-4700" (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "LED" (at 5.08 -4.445 0)
