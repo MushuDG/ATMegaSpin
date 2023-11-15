@@ -1,4 +1,4 @@
-22372060907983190
+22377161028158377
 ATMEGA328P_PU
 28P3_ATM
 
@@ -20,6 +20,13 @@ audio belton reverb
 0
 7
 7
+BS_7
+BS-7_MPD
+
+BS-7 
+0
+2
+2
 Battery
 BatteryClip_Keystone_54_D16-19mm
 Battery clip for batteries with a diameter between 16-19 mm: https://www.keyelco.com/product.cfm/product_id/826
@@ -54851,6 +54858,13 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+ECS_160_18_4X_CKM
+XTAL_ECS-160-18-4X-CKM
+
+
+0
+2
+2
 ED2181DT
 OST_ED281DT
 
@@ -61242,6 +61256,13 @@ solder jumper open
 0
 5
 3
+K220J15C0GF5TL2
+CAP_K-SERIES_15-L2_VIS
+
+K220J15C0GF5TL2 
+0
+2
+2
 LED_SMD
 LED-APA102-2020
 http://www.led-color.com/upload/201604/APA102-2020%20SMD%20LED.pdf
