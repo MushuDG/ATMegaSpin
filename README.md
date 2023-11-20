@@ -18,7 +18,7 @@ Stop the LED which precedes the last LED
 ![Mechanical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/EnsemblePCB.pdf)
 
 ## 3D Printed parts:
-![3D Printed parts](https://www.printables.com/fr/model/649943-atmegaspin)
+[3D Printed parts](https://www.printables.com/fr/model/649943-atmegaspin)
 
 ## PCB GERBER File:
 ![PCB GERBER File](https://github.com/MushuDG/ATMegaSpin/blob/main/KiCad/ATMegaSpin/ATMegaSpin-GERBER.zip)
