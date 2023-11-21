@@ -23,6 +23,24 @@ Stop the LED which precedes the last LED
 ## PCB GERBER File:
 ![PCB GERBER File](https://github.com/MushuDG/ATMegaSpin/blob/main/KiCad/ATMegaSpin/ATMegaSpin-GERBER.zip)
 
+## ATMega328P Pinout:
+| Arduino Pinout | Electrical Part | ATMega328 Pinout | ATMega328 Pinout | Electrical Part | Arduino Pinout |
+| -------------- | --------------- | ---------------- | ---------------- | --------------- | -------------- |
+| Reset          | Not used        | 1                | 28               | Not used        | A5             |
+| 0 RX           | Not used        | 2                | 27               | Not used        | A4             |
+| 1 TX           | Not used        | 3                | 26               | Not used        | A3             |
+| D2             | LED 1           | 4                | 25               | Not used        | A2             |
+| D3             | Button Pin 4    | 5                | 24               | Not used        | A1             |
+| D4             | LED 2           | 6                | 23               | Not used        | A0             |
+| VCC            | +5V             | 7                | 22               | GND             | GND            |
+| GND            | GND             | 8                | 21               | Not used        | Aref           |
+| Crystal        | Crystal         | 9                | 20               | Not used        | Avcc           |
+| Crystal        | Crystal         | 10               | 19               | LED 10          | D13            |
+| D5             | Not used        | 11               | 18               | LED 9           | D12            |
+| D6             | LED 3           | 12               | 17               | LED 8           | D11            |
+| D7             | LED 4           | 13               | 16               | LED 7           | D10            |
+| D8             | LED 5           | 14               | 15               | LED 6           | D9             |
+
 ## Electrical parts:
 | N° | PRODUCTS DETAILS                                                                                | SUPPLIER | QUANTITY | PRICE       | TOTAL        |
 | -- | ----------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ------------ |
