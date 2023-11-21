@@ -1,3 +1,6 @@
+> [!WARNING]  
+> Hey! This Thing is still a Work in Progress. Files, instructions, and other stuff might change!
+
 # ATMegaSpin
 ## Goal of the game:
 Stop the LED which precedes the last LED
