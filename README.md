@@ -27,8 +27,8 @@ Stop the LED which precedes the last LED
 | Arduino Pinout | Electrical Part | ATMega328 Pinout | ATMega328 Pinout | Electrical Part | Arduino Pinout |
 | -------------- | --------------- | ---------------- | ---------------- | --------------- | -------------- |
 | Reset          | Not used        | 1                | 28               | Not used        | A5             |
-| 0 RX           | Not used        | 2                | 27               | Not used        | A4             |
-| 1 TX           | Not used        | 3                | 26               | Not used        | A3             |
+| D0 RX          | Not used        | 2                | 27               | Not used        | A4             |
+| D1 TX          | Not used        | 3                | 26               | Not used        | A3             |
 | D2             | LED 1           | 4                | 25               | Not used        | A2             |
 | D3             | Button Pin 4    | 5                | 24               | Not used        | A1             |
 | D4             | LED 2           | 6                | 23               | Not used        | A0             |
