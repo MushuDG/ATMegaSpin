@@ -11,6 +11,7 @@ Stop the LED which precedes the last LED
 ### Back
 ![Back PCB view](https://github.com/MushuDG/ATMegaSpin/blob/main/Photo/ATMegaSpin_Back.png)
 
+# Schematics
 ## Electrical schematic:
 ![Electrical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/ATMegaSpin_Schematic.pdf)
 
@@ -19,12 +20,6 @@ Stop the LED which precedes the last LED
 
 ## Mechanical schematic:
 ![Mechanical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/EnsemblePCB.pdf)
-
-## 3D Printed parts:
-[3D Printed parts](https://www.printables.com/fr/model/649943-atmegaspin)
-
-## PCB GERBER File:
-![PCB GERBER File](https://github.com/MushuDG/ATMegaSpin/blob/main/KiCad/ATMegaSpin/ATMegaSpin-GERBER.zip)
 
 ## ATMega328P Pinout:
 | Arduino Pinout | Electrical Part | ATMega328 Pinout | ATMega328 Pinout | Electrical Part | Arduino Pinout |
@@ -43,6 +38,14 @@ Stop the LED which precedes the last LED
 | D6             | LED 3           | 12               | 17               | LED 8           | D11            |
 | D7             | LED 4           | 13               | 16               | LED 7           | D10            |
 | D8             | LED 5           | 14               | 15               | LED 6           | D9             |
+
+
+# GERBER - 3D printed Files - Other Hardware stuff
+## 3D Printed parts:
+[3D Printed parts](https://www.printables.com/fr/model/649943-atmegaspin)
+
+## PCB GERBER File:
+![PCB GERBER File](https://github.com/MushuDG/ATMegaSpin/blob/main/KiCad/ATMegaSpin/ATMegaSpin-GERBER.zip)
 
 ## Electrical parts:
 | N° | PRODUCTS DETAILS                                                                                | SUPPLIER | QUANTITY | PRICE       | TOTAL        |
