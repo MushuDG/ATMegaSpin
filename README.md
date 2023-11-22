@@ -2,10 +2,35 @@
 > Hey! This project is still a Work in Progress. Files, instructions, and other stuff might change!
 
 # Table of contents
-1. [Goal of the game](https://github.com/MushuDG/ATMegaSpin/tree/main#goal-of-the-game)
-2. [PCB Pictures](#paragraph1)
-    1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+1. [Goal of the game](#goal-of-the-game)
+
+2. [PCB Pictures](#pcb-pictures)
+    1. [Front](#front)
+    2. [Back](#back)
+
+3. [Schematics](#schematics)
+    1. [Electrical schematic](#electrical-schematic)
+    2. [PCB schematic](#pcb-schematic)
+    3. [Mechanical schematic](#mechanical-schematic)
+    4. [ATMega328P Pinout](#atmega328p-pinout)
+
+4. [GERBER - 3D printed Files - Other Hardware stuff](#gerber---3d-printed-files---other-hardware-stuff)
+    1. [3D Printed parts](#3d-printed-parts)
+    2. [PCB GERBER File](#pcb-gerber-file)
+    3. [Electrical parts](#electrical-parts)
+
+5. [Installation](#installation)
+    1. [Burn bootloader](#burn-bootloader)
+        1. [Needed tools](#needed-tools)
+        2. [Circuit](#circuit)
+        3. [Pinout](#pinout)
+        4. [Upload ISP sketch](#upload-isp-sketch)
+        5. [Burn bootloader](#burn-bootloader-1)
+            1. [Installing Mini-core](#installing-mini---core)
+            2. [Select your device, crystal and programmer and burn bootloader](#select-your-device-crystal-and-programmer-and-burn-bootloader)
+    2. [Upload sketch from programmer](#upload-sketch-from-programmer)
+
+
 
 # ATMegaSpin
 ## Goal of the game:
