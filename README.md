@@ -110,7 +110,7 @@ Type *‘minicore’* into the search bar and the relevant entry will appear. Se
 - Set your programmer as *‘Arduino as ISP’*
 - Burn the bootloader using the *‘Burn Bootloader’* option at the bottom of the Tools menu.
 
-### Upload sketch from programmer
+## Upload sketch from programmer
 Once the bootloader is burned, open up the *[Spin.ino](https://github.com/MushuDG/ATMegaSpin/blob/main/Code/Spin/Spin.ino)* sketch. From the menu *Sketch* use the *Upload Using Programmer* tool to Upload the sketch to the ATMega328P Target.
 
 Then, you can disconnect the MCU from the Arduino target and clip it to your circuit. 
