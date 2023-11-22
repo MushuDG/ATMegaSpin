@@ -73,7 +73,10 @@ Before you can connect the [ATMega328P](https://en.wikipedia.org/wiki/ATmega328)
 The Memory Map of an ATmega328P
 
 > [!IMPORTANT]  
-> The preceding paragraph and illustration were taken from this documentation: [Arduino as ISP and Arduino Bootloaders](https://docs.arduino.cc/built-in-examples/arduino-isp/ArduinoISP) Accessed on 2023-11-22
+> The preceding paragraph and illustration were taken from this documentation: [Arduino as ISP and Arduino Bootloaders](https://docs.arduino.cc/built-in-examples/arduino-isp/ArduinoISP) -  Accessed on 2023-11-22
 
 ## Burn bootloader
-### 
+### Needed tools
+To burn the bootloader on the microcontroller you need 2 arduino cards. The first will be used as an ISP programmer.
+
+### Circuit
