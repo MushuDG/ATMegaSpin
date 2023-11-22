@@ -3,22 +3,18 @@
 
 # Table of contents
 1. [Goal of the game](#goal-of-the-game)
-
 2. [PCB Pictures](#pcb-pictures)
     1. [Front](#front)
     2. [Back](#back)
-
 3. [Schematics](#schematics)
     1. [Electrical schematic](#electrical-schematic)
     2. [PCB schematic](#pcb-schematic)
     3. [Mechanical schematic](#mechanical-schematic)
     4. [ATMega328P Pinout](#atmega328p-pinout)
-
 4. [GERBER - 3D printed Files - Other Hardware stuff](#gerber---3d-printed-files---other-hardware-stuff)
     1. [3D Printed parts](#3d-printed-parts)
     2. [PCB GERBER File](#pcb-gerber-file)
     3. [Electrical parts](#electrical-parts)
-
 5. [Installation](#installation)
     1. [Burn bootloader](#burn-bootloader)
         1. [Needed tools](#needed-tools)
