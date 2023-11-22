@@ -121,21 +121,21 @@ To burn the bootloader on the microcontroller you need 2 arduino (In this case I
 
 ### Upload ISP sketch
 Once the circuit is connected, follow the following instructions to apply the ISP programming sketch on the Arduino programmer:
-- Open the Arduino IDE and from the menu *File > Examples > 11.ArduinoISP > ArduinoISP*, load the sketch.
-- Select the proper board (I.E.: Arduino Uno) and upload the sketch
+1. Open the Arduino IDE and from the menu *File > Examples > 11.ArduinoISP > ArduinoISP*, load the sketch.
+2. Select the proper board (I.E.: Arduino Uno) and upload the sketch
 
 ### Burn bootloader
 #### Installing Mini-core
-- Open up the Arduino IDE and navigate to the preferences (or press ctrl+,). Copy the following URL into the empty field labelled *‘Additional Boards Manager URLs’*: [https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json](https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json)
-- Go to the boards manager, which can be found under *Tools > Board > Boards Manager*.
+1. Open up the Arduino IDE and navigate to the preferences (or press ctrl+,). Copy the following URL into the empty field labelled *‘Additional Boards Manager URLs’*: [https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json](https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json)
+2. Go to the boards manager, which can be found under *Tools > Board > Boards Manager*.
 Type *‘minicore’* into the search bar and the relevant entry will appear. Select the latest version and click *‘install’*. Once the installation is complete, close the boards manager window.
 
 #### Select your device, crystal and programmer and burn bootloader
-- Select the relevant device, crystal and programmer options under the *‘tools’* menu.
-- Under board, select *‘ATmega328’* (or whichever chip you’re using).
-- Under clock, select the frequency of your external clock. It should be written in block capitals on the top of the crystal’s casing.
-- Set your programmer as *‘Arduino as ISP’*
-- Burn the bootloader using the *‘Burn Bootloader’* option at the bottom of the Tools menu.
+1. Select the relevant device, crystal and programmer options under the *‘tools’* menu.
+2. Under board, select *‘ATmega328’* (or whichever chip you’re using).
+3. Under clock, select the frequency of your external clock. It should be written in block capitals on the top of the crystal’s casing.
+4. Set your programmer as *‘Arduino as ISP’*
+5. Burn the bootloader using the *‘Burn Bootloader’* option at the bottom of the Tools menu.
 
 ## Upload sketch from programmer
 Once the bootloader is burned, open up the *[Spin.ino](https://github.com/MushuDG/ATMegaSpin/blob/main/Code/Spin/Spin.ino)* sketch. From the menu *Sketch* use the *Upload Using Programmer* tool to Upload the sketch to the ATMega328P Target.
