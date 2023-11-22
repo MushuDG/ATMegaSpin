@@ -26,7 +26,7 @@
         3. [Pinout](#pinout)
         4. [Upload ISP sketch](#upload-isp-sketch)
         5. [Burn bootloader](#burn-bootloader-1)
-            1. [Installing Mini-core](#installing-mini---core)
+            1. [Installing Mini-core](#installing-mini-core)
             2. [Select your device, crystal and programmer and burn bootloader](#select-your-device-crystal-and-programmer-and-burn-bootloader)
     2. [Upload sketch from programmer](#upload-sketch-from-programmer)
 
