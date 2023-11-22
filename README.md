@@ -1,6 +1,12 @@
 > [!WARNING]  
 > Hey! This project is still a Work in Progress. Files, instructions, and other stuff might change!
 
+# Table of contents
+1. [Goal of the game](https://github.com/MushuDG/ATMegaSpin/tree/main#goal-of-the-game)
+2. [PCB Pictures](#paragraph1)
+    1. [Sub paragraph](#subparagraph1)
+3. [Another paragraph](#paragraph2)
+
 # ATMegaSpin
 ## Goal of the game:
 Stop the LED which precedes the last LED
