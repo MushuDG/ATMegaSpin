@@ -63,3 +63,11 @@ Stop the LED which precedes the last LED
 |    |                                                                                                 |          |          |             |              |
 |    | Aprox. Total                                                                                    |          |          |             | Fr. 62.69    |
 |    | Aprox. Total/pcs                                                                                |          |          |             | Fr. 12.54    |
+
+# Installation
+Before you can connect the [ATMega328P](https://en.wikipedia.org/wiki/ATmega328) microcontroller to the circuit, it's necessary to burn the bootloader of the chip. Once the bootloader is burned, the program can be uploaded to it.
+
+*"To program the bootloader and provide to the microcontroller the compatibility with the Arduino Software (IDE) you need to use an In-circuit Serial Programmer (ISP) that is the device that connects to a specific set of pins of the microcontroller to perform the programming of the whole flash memory of the microcontroller, bootloader included. The ISP programming procedure also includes the writing of fuses: a special set of bits that define how the microcontroller works under specific circumstances."*
+
+## Burn bootloader
+### 
