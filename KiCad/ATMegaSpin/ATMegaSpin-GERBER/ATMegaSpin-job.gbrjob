@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "7.0.8"
     },
-    "CreationDate": "2023-11-15T15:43:31+01:00"
+    "CreationDate": "2023-11-22T10:02:54+01:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "ATMegaSpin",
       "GUID": "41544d65-6761-4537-9069-6e2e6b696361",
-      "Revision": "rev?"
+      "Revision": "2"
     },
     "Size": {
       "X": 100.3933,
@@ -24,8 +24,8 @@
   "DesignRules": [
     {
       "Layers": "Outer",
-      "PadToPad": 0.0,
-      "PadToTrack": 0.0,
+      "PadToPad": 0.2,
+      "PadToTrack": 0.2,
       "TrackToTrack": 0.2,
       "MinLineWidth": 0.25
     }
