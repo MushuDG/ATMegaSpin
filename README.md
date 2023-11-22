@@ -110,14 +110,14 @@ To burn the bootloader on the microcontroller you need 2 arduino (In this case I
 ![Arduino ISP Programmer circuit](https://github.com/MushuDG/ATMegaSpin/blob/main/Pictures/README_Pictures/Arduin_ISP_Programmer/Arduino_ISP_Programmer.png)
 
 ### Pinout
-| Arduino ISP Pin | Arduino Target Pin |
-| --------------- | ------------------ |
-| +5 [V]          | +5 [V]             |
-| GND             | GND                |
-| D10             | Reset              |
-| 11              | 11                 |
-| 12              | 12                 |
-| 13              | 13                 |
+| Arduino Programmer Pin | Arduino Target Pin |
+| ---------------------- | ------------------ |
+| +5 [V]                 | +5 [V]             |
+| GND                    | GND                |
+| D10                    | Reset              |
+| 11                     | 11                 |
+| 12                     | 12                 |
+| 13                     | 13                 |
 
 ### Upload ISP sketch
 Once the circuit is connected, follow the following instructions to apply the ISP programming sketch on the Arduino programmer:
