@@ -7,19 +7,19 @@ Stop the LED which precedes the last LED
 
 ## PCB Pictures:
 ### Front
-![Front PCB view](https://github.com/MushuDG/ATMegaSpin/blob/main/Photo/ATMegaSpin_Front.png)
+![Front PCB view](https://github.com/MushuDG/ATMegaSpin/blob/main/Pictures/ATMegaSpin_Front.png)
 ### Back
-![Back PCB view](https://github.com/MushuDG/ATMegaSpin/blob/main/Photo/ATMegaSpin_Back.png)
+![Back PCB view](https://github.com/MushuDG/ATMegaSpin/blob/main/Pictures/ATMegaSpin_Back.png)
 
 # Schematics
 ## Electrical schematic:
-![Electrical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/ATMegaSpin_Schematic.pdf)
+[Electrical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/ATMegaSpin_Schematic.pdf)
 
 ## PCB schematic:
-![PCB schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/ATMegaSpin_PCB.pdf)
+[PCB schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/ATMegaSpin_PCB.pdf)
 
 ## Mechanical schematic:
-![Mechanical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/EnsemblePCB.pdf)
+[Mechanical schematic](https://github.com/MushuDG/ATMegaSpin/blob/main/PDF/EnsemblePCB.pdf)
 
 ## ATMega328P Pinout:
 | Arduino Pinout | Electrical Part | ATMega328 Pinout | ATMega328 Pinout | Electrical Part | Arduino Pinout |
@@ -45,7 +45,7 @@ Stop the LED which precedes the last LED
 [3D Printed parts](https://www.printables.com/fr/model/649943-atmegaspin)
 
 ## PCB GERBER File:
-![PCB GERBER File](https://github.com/MushuDG/ATMegaSpin/blob/main/KiCad/ATMegaSpin/ATMegaSpin-GERBER.zip)
+[PCB GERBER File](https://github.com/MushuDG/ATMegaSpin/blob/main/KiCad/ATMegaSpin/ATMegaSpin-GERBER.zip)
 
 ## Electrical parts:
 | N° | PRODUCTS DETAILS                                                                                | SUPPLIER | QUANTITY | PRICE       | TOTAL        |
@@ -68,6 +68,12 @@ Stop the LED which precedes the last LED
 Before you can connect the [ATMega328P](https://en.wikipedia.org/wiki/ATmega328) microcontroller to the circuit, it's necessary to burn the bootloader of the chip. Once the bootloader is burned, the program can be uploaded to it.
 
 *"To program the bootloader and provide to the microcontroller the compatibility with the Arduino Software (IDE) you need to use an In-circuit Serial Programmer (ISP) that is the device that connects to a specific set of pins of the microcontroller to perform the programming of the whole flash memory of the microcontroller, bootloader included. The ISP programming procedure also includes the writing of fuses: a special set of bits that define how the microcontroller works under specific circumstances."*
+
+![Memory Map](https://github.com/MushuDG/ATMegaSpin/blob/main/Pictures/README_Pictures/MemoryMap/MemoryMap.png)
+The Memory Map of an ATmega328P
+
+> [!IMPORTANT]  
+> The preceding paragraph and illustration were taken from this documentation: [Arduino as ISP and Arduino Bootloaders](https://docs.arduino.cc/built-in-examples/arduino-isp/ArduinoISP) Accessed on 2023-11-22
 
 ## Burn bootloader
 ### 
