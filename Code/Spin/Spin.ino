@@ -8,9 +8,8 @@
 // Description:        Program managing the game
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-// CONST
+// Pin Declaration
 ////////////////////////////////////////////////////////////////////////////////
-
 // Declaration of pin numbers
 #define LED_PIN_0                       2                                       // LED 0
 #define LED_PIN_1                       4                                       // LED 1
@@ -25,20 +24,25 @@
 #define buttonPinPlay                   3                                       // BUTTON PLAY
 #define buttonPinReset                  5                                       // BUTTON RESET
 
+////////////////////////////////////////////////////////////////////////////////
+// CONST
+////////////////////////////////////////////////////////////////////////////////
 const int LED_NUMBER            =       10;                                     // TOTAL LED
+const int maxSpeed              =       1500;                                   // Define max speed game
+const int minSpeed              =       500;                                    // Define min speed game
 
 // Create an array of the LED
-byte LEDPinArray[LED_NUMBER]    =   {   LED_PIN_0,
-                                        LED_PIN_1,
-                                        LED_PIN_2,
-                                        LED_PIN_3,
-                                        LED_PIN_4,
-                                        LED_PIN_5,
-                                        LED_PIN_6,
-                                        LED_PIN_7,
-                                        LED_PIN_8,
-                                        LED_PIN_9
-                                    };
+const byte LEDPinArray[LED_NUMBER]    = {   LED_PIN_0,
+                                            LED_PIN_1,
+                                            LED_PIN_2,
+                                            LED_PIN_3,
+                                            LED_PIN_4,
+                                            LED_PIN_5,
+                                            LED_PIN_6,
+                                            LED_PIN_7,
+                                            LED_PIN_8,
+                                            LED_PIN_9
+                                        };      
 
 ////////////////////////////////////////////////////////////////////////////////
 // Var
@@ -49,7 +53,8 @@ int ledState                    =       0;                                      
 int exitFlag                    =       0;                                      // Exit loop flag
 int score                       =       0;                                      // Score
 int goal                        =       10;                                     // Goal to reached
-int delaySpeed                  =       1000;                                   // Define the speed game
+float delaySpeed                =       0;                                      // Define the speed game
+float soustractValue            =       0;                                      // Define the soustract speed value
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
@@ -68,6 +73,7 @@ void setup()
     pinMode(buttonPinPlay, INPUT);
     pinMode(buttonPinReset, INPUT);
 
+    // Create and attach interrupt function (Interrupt_Stop_Button) to buttonPinPlay when pin Rising
     attachInterrupt(digitalPinToInterrupt(buttonPinPlay), Interrupt_Stop_Button, RISING);
 }
 
@@ -77,7 +83,8 @@ void setup()
 void loop()
 {
     goal = 10;
-    delaySpeed = 1000;
+    delaySpeed = Get_Speed_Game(minSpeed, maxSpeed);
+    soustractValue = delaySpeed * 0.1;
     Start_Waiting();
     Starting_Blink();
     Game();
@@ -192,7 +199,7 @@ void Game(){
             digitalWrite(LEDPinArray[i],LOW);
         } // End For loop
 
-        delaySpeed=delaySpeed-100;
+        delaySpeed=delaySpeed-soustractValue;
      } while (exitFlag==0); // End do while loop
 } // End Game
 
@@ -228,11 +235,21 @@ void Game_Over(){
         // Pause
         delay(500);
     } while (exitFlag==0);
-}
+} // End Game_Over
+
+////////////////////////////////////////////////////////////////////////////////
+// Get_Speed_Game
+// Param:   int minSpeed    :   Minimal speed delay for the game
+//          int maxSpeed    :   Maximal speed delay for the game
+// Return:  random          :   Random value between minSpeed and maxSpeed
+////////////////////////////////////////////////////////////////////////////////
+float Get_Speed_Game(int minSpeed, int maxSpeed){
+    return random(minSpeed, maxSpeed); 
+} // End Get_Speed_Game
 
 ////////////////////////////////////////////////////////////////////////////////
 // Interrupt_Stop_Button
 ////////////////////////////////////////////////////////////////////////////////
 void Interrupt_Stop_Button(){
     exitFlag = 1;
-}
+} // End Interrupt_Stop_Button
