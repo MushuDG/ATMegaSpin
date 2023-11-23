@@ -54,7 +54,7 @@ int exitFlag                    =       0;                                      
 int score                       =       0;                                      // Score
 int goal                        =       10;                                     // Goal to reached
 float delaySpeed                =       0;                                      // Define the speed game
-float subtractValue            =       0;                                       // Define the subtract speed value
+float subtractValue             =       0;                                      // Define the subtract speed value
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
@@ -71,7 +71,7 @@ void setup()
 
     // Set buttons as input
     pinMode(buttonPinPlay, INPUT);
-    pinMode(buttonPinReset, INPUT);
+    //pinMode(buttonPinReset, INPUT);
 
     // Create and attach interrupt function (Interrupt_Stop_Button) to buttonPinPlay when pin Rising
     attachInterrupt(digitalPinToInterrupt(buttonPinPlay), Interrupt_Stop_Button, RISING);
@@ -183,6 +183,12 @@ void Game(){
 
         // Foreach led under the goal
         for (int i = 0; i < goal; i++){
+            
+            // If score is reached, exit for loop and do while loop
+            if( score == LED_NUMBER-1 ){
+                exitFlag=1;
+                break;
+            } // End if
 
             // if the stop button was pressed at good time:
             // - Highlight the goal -1 led.
