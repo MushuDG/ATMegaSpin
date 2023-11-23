@@ -22,7 +22,7 @@
 #define LED_PIN_8                       12                                      // LED 8
 #define LED_PIN_9                       13                                      // LED 9
 #define buttonPinPlay                   3                                       // BUTTON PLAY
-#define buttonPinReset                  5                                       // BUTTON RESET
+//#define buttonPinReset                5                                       // BUTTON RESET
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONST
@@ -54,7 +54,7 @@ int exitFlag                    =       0;                                      
 int score                       =       0;                                      // Score
 int goal                        =       10;                                     // Goal to reached
 float delaySpeed                =       0;                                      // Define the speed game
-float soustractValue            =       0;                                      // Define the soustract speed value
+float subtractValue            =       0;                                       // Define the subtract speed value
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
@@ -67,7 +67,7 @@ void setup()
     } // End For loop
 
     // Start Serial monitor
-    Serial.begin(9600);
+    //Serial.begin(9600);
 
     // Set buttons as input
     pinMode(buttonPinPlay, INPUT);
@@ -82,12 +82,25 @@ void setup()
 ////////////////////////////////////////////////////////////////////////////////
 void loop()
 {
+    // Total on board LED
     goal = 10;
+
+    // Setup random speed game
     delaySpeed = Get_Speed_Game(minSpeed, maxSpeed);
-    soustractValue = delaySpeed * 0.1;
+
+    // Get the 10% initial speed to subtract each goal reached
+    subtractValue = delaySpeed * 0.1;
+
+    // Start waiting display
     Start_Waiting();
+
+    // Display starting light
     Starting_Blink();
+
+    // Start the game
     Game();
+
+    // Display Game Over
     Game_Over();    
 } // End loop
 
@@ -199,7 +212,7 @@ void Game(){
             digitalWrite(LEDPinArray[i],LOW);
         } // End For loop
 
-        delaySpeed=delaySpeed-soustractValue;
+        delaySpeed=delaySpeed-subtractValue;
      } while (exitFlag==0); // End do while loop
 } // End Game
 
