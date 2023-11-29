@@ -27,7 +27,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONST
 ////////////////////////////////////////////////////////////////////////////////
-const int LED_NUMBER            =       10;                                     // TOTAL LED
+const int LED_NUMBER            =       10;                                     // TOTAL LED count
 const int maxSpeed              =       1500;                                   // Define max speed game
 const int minSpeed              =       500;                                    // Define min speed game
 
@@ -237,7 +237,7 @@ void Game_Over() {
     delay(500);
 
     do {
-        
+
         // Turn on LEDs
         for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], HIGH);
