@@ -60,7 +60,7 @@ float subtractValue             =       0;                                      
 // Setup
 ////////////////////////////////////////////////////////////////////////////////
 void setup()
-{
+ {
     // Set pinMode Output for all LED
     for (int i = 0; i < LED_NUMBER; i++) {
         pinMode(LEDPinArray[i], OUTPUT);
@@ -81,14 +81,14 @@ void setup()
 // Loop
 ////////////////////////////////////////////////////////////////////////////////
 void loop()
-{
+ {
     // Total on board LED
     goal = 10;
 
     // Setup random speed game
     delaySpeed = Get_Speed_Game(minSpeed, maxSpeed);
 
-    // Get the 10% initial speed to subtract each goal reached
+    // Get the 10% initial speed to subtract each goal reached\ {
     subtractValue = delaySpeed * 0.1;
 
     // Start waiting display
@@ -107,7 +107,7 @@ void loop()
 ////////////////////////////////////////////////////////////////////////////////
 // Start_Waiting
 ////////////////////////////////////////////////////////////////////////////////
-void Start_Waiting(){
+void Start_Waiting() {
 
     // Set exitFlag to 0
     exitFlag=0;
@@ -116,13 +116,12 @@ void Start_Waiting(){
     do {
 
         // Foreach LED: Check status. If status is low then turn it on. Else, turn it off
-        for (int i = 0; i < LED_NUMBER; i++){
+        for (int i = 0; i < LED_NUMBER; i++) {
             ledState = digitalRead(LEDPinArray[i]);
-            if (ledState == LOW){
+            if (ledState == LOW) {
                 digitalWrite(LEDPinArray[i], HIGH);
                 delay(100);
-            }
-            else{
+            } else {
                 digitalWrite(LEDPinArray[i], LOW);
                 delay(100);
             }
@@ -133,10 +132,10 @@ void Start_Waiting(){
 ////////////////////////////////////////////////////////////////////////////////
 // Starting_Blink
 ////////////////////////////////////////////////////////////////////////////////
-void Starting_Blink(){
+void Starting_Blink() {
 
     // Reset all LED statement
-    for (int i = 0; i < LED_NUMBER; i++){
+    for (int i = 0; i < LED_NUMBER; i++) {
         digitalWrite(LEDPinArray[i], LOW);
     } // End For loop
 
@@ -144,10 +143,10 @@ void Starting_Blink(){
     delay(500);
 
     // Blink all LED 3 times
-    for (int i = 0; i < 3; i++){
+    for (int i = 0; i < 3; i++) {
 
         // Turn on LEDs
-        for (int i = 0; i < LED_NUMBER; i++){
+        for (int i = 0; i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], HIGH);
         } // End For loop
 
@@ -155,7 +154,7 @@ void Starting_Blink(){
         delay(500);
 
         // Turn off LEDs
-        for (int i = 0; i < LED_NUMBER; i++){
+        for (int i = 0; i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], LOW);
         } // End For loop
 
@@ -167,7 +166,7 @@ void Starting_Blink(){
 ////////////////////////////////////////////////////////////////////////////////
 // Game
 ////////////////////////////////////////////////////////////////////////////////
-void Game(){
+void Game() {
     
     // Set exitFlag to 0
     exitFlag = 0;
@@ -179,13 +178,13 @@ void Game(){
     digitalWrite(LEDPinArray[9], HIGH);
 
     // Start game
-    do{
+    do {
 
         // Foreach led under the goal
-        for (int i = 0; i < goal; i++){
+        for (int i = 0; i < goal; i++) {
             
             // If score is reached, exit for loop and do while loop
-            if( score == LED_NUMBER-1 ){
+            if( score == LED_NUMBER-1 ) {
                 exitFlag=1;
                 break;
             } // End if
@@ -196,7 +195,7 @@ void Game(){
             // - Then, decrease the goal
             // - Then increase the score
             // - Then break the for loop
-            if( i==goal-1 && exitFlag==1){
+            if( i==goal-1 && exitFlag==1) {
                 digitalWrite(LEDPinArray[i-1],HIGH);
                 exitFlag=0;
                 goal--;
@@ -207,7 +206,7 @@ void Game(){
             // Else if the button was pressed but the goal is not reached, 
             // or if the button wasn't pressed but the goal is reached,
             // break the for loop and go to the Gameover "screen"
-            else if( (i != goal-1 && exitFlag==1) || (i == goal-1)){
+            else if( (i != goal-1 && exitFlag==1) || (i == goal-1)) {
                 exitFlag = 1;
                 break;
             } // End Else if
@@ -226,20 +225,21 @@ void Game(){
 ////////////////////////////////////////////////////////////////////////////////
 // Game_Over
 ////////////////////////////////////////////////////////////////////////////////
-void Game_Over(){
+void Game_Over() {
     exitFlag = 0;
 
     // Reset all LED statement
-    for (int i = 0; i < LED_NUMBER; i++){
+    for (int i = 0; i < LED_NUMBER; i++) {
         digitalWrite(LEDPinArray[i], LOW);
     } // End For loop
 
     // Pause
     delay(500);
 
-    do{
+    do {
+        
         // Turn on LEDs
-        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++){
+        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], HIGH);
         } // End For loop
 
@@ -247,7 +247,7 @@ void Game_Over(){
         delay(500);
 
         // Turn off LEDs
-        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++){
+        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], LOW);
         } // End For loop
 
@@ -262,13 +262,13 @@ void Game_Over(){
 //          int maxSpeed    :   Maximal speed delay for the game
 // Return:  random          :   Random value between minSpeed and maxSpeed
 ////////////////////////////////////////////////////////////////////////////////
-float Get_Speed_Game(int minSpeed, int maxSpeed){
+float Get_Speed_Game(int minSpeed, int maxSpeed) {
     return random(minSpeed, maxSpeed); 
 } // End Get_Speed_Game
 
 ////////////////////////////////////////////////////////////////////////////////
 // Interrupt_Stop_Button
 ////////////////////////////////////////////////////////////////////////////////
-void Interrupt_Stop_Button(){
+void Interrupt_Stop_Button() {
     exitFlag = 1;
 } // End Interrupt_Stop_Button
