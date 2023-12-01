@@ -25,6 +25,8 @@
             1. [Installing Mini-core](#installing-mini-core)
             2. [Select your device, crystal and programmer and burn bootloader](#select-your-device-crystal-and-programmer-and-burn-bootloader)
     2. [Upload sketch from programmer](#upload-sketch-from-programmer)
+6. [Contributions](#contributions)
+7. [License](#license)
 
 
 
@@ -142,3 +144,16 @@ Once the bootloader is burned, open up the *[Spin.ino](https://github.com/MushuD
 
 Then, you can disconnect the MCU from the Arduino target and clip it to your circuit. 
 
+## Contributions
+
+Contributions to this project are welcome! If you have ideas for improvements or bug fixes, please follow the [contribution guidelines](CONTRIBUTING.md).
+
+1. Fork the project.
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`.
+3. Commit your changes: `git commit -m 'Add some amazing feature'`.
+4. Push to the branch: `git push origin feature/AmazingFeature`.
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
