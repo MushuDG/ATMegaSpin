@@ -30,7 +30,7 @@
 
 # ATMegaSpin
 ## Goal of the game:
-Stop the LED which precedes the last LED
+A LED game where the player has to press a button at the right moment to reach a specific goal. The challenge of the game lies in the speed at which the LEDs blink, the reduction of this speed with each achieved goal, and the necessity to press the button at the right moment to advance in the game.
 
 ## PCB Pictures:
 ### Front
