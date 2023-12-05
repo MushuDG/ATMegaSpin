@@ -34,6 +34,6 @@ Please note that this project is released with a Contributor Code of Conduct. By
 
 ## License
 
-By contributing to ATMegaSpin, you agree that your contributions will be licensed under the [MIT License](LICENSE.md).
+By contributing to ATMegaSpin, you agree that your contributions will be licensed under the [AGPL-3.0 license](LICENSE.md).
 
 Thank you for your contributions!
