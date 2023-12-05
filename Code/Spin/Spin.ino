@@ -25,13 +25,15 @@
 //#define buttonPinReset                5                                       // BUTTON RESET
 
 ////////////////////////////////////////////////////////////////////////////////
-// CONST
+// Constants
 ////////////////////////////////////////////////////////////////////////////////
-const int LED_NUMBER            =       10;                                     // TOTAL LED count
-const int maxSpeed              =       1500;                                   // Define max speed game
-const int minSpeed              =       500;                                    // Define min speed game
+const int LED_NUMBER    =               10;                                     // TOTAL LED count
+const int MAX_SPEED     =               1500;                                   // Define max speed game
+const int MIN_SPEED     =               500;                                    // Define min speed game
 
-// Create an array of the LED
+////////////////////////////////////////////////////////////////////////////////
+// Array of LED Pins
+////////////////////////////////////////////////////////////////////////////////
 const byte LEDPinArray[LED_NUMBER]    = {   LED_PIN_0,
                                             LED_PIN_1,
                                             LED_PIN_2,
@@ -45,7 +47,7 @@ const byte LEDPinArray[LED_NUMBER]    = {   LED_PIN_0,
                                         };      
 
 ////////////////////////////////////////////////////////////////////////////////
-// Var
+// Variables
 ////////////////////////////////////////////////////////////////////////////////
 int buttonPlayState             =       0;                                      // Var for reading the pushbutton play status
 int buttonResetState            =       0;                                      // Var for reading the pushbutton reset status
@@ -55,6 +57,18 @@ int score                       =       0;                                      
 int goal                        =       10;                                     // Goal to reached
 float delaySpeed                =       0;                                      // Define the speed game
 float subtractValue             =       0;                                      // Define the subtract speed value
+
+////////////////////////////////////////////////////////////////////////////////
+// Function Prototypes
+////////////////////////////////////////////////////////////////////////////////
+void setup();
+void loop();
+void Start_Waiting();
+void Starting_Blink();
+void Game();
+void Game_Over();
+float Get_Speed_Game(int minSpeed, int maxSpeed);
+void Interrupt_Stop_Button();
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup
@@ -86,7 +100,7 @@ void loop()
     goal = 10;
 
     // Setup random speed game
-    delaySpeed = Get_Speed_Game(minSpeed, maxSpeed);
+    delaySpeed = Get_Speed_Game(MIN_SPEED, MAX_SPEED);
 
     // Get the 10% initial speed to subtract each goal reached\ {
     subtractValue = delaySpeed * 0.1;
@@ -111,20 +125,26 @@ void Start_Waiting() {
 
     // Set exitFlag to 0
     exitFlag=0;
+    unsigned long currentMillis = 0;
+    unsigned long ledMillis = 0;
 
     // Do while the start button isn't pressed
     do {
+        currentMillis = millis();
 
         // Foreach LED: Check status. If status is low then turn it on. Else, turn it off
         for (int i = 0; i < LED_NUMBER; i++) {
             ledState = digitalRead(LEDPinArray[i]);
             if (ledState == LOW) {
                 digitalWrite(LEDPinArray[i], HIGH);
-                delay(100);
             } else {
                 digitalWrite(LEDPinArray[i], LOW);
-                delay(100);
             }
+            // Delay after each LED (keep if necessary)
+            while (millis() - ledMillis < 100) {
+                // Wait
+            }
+            ledMillis = millis();
         } // end for loop
     } while(exitFlag == 0); // end while loop
 } // End Start_Waiting
@@ -195,7 +215,7 @@ void Game() {
             // - Then, decrease the goal
             // - Then increase the score
             // - Then break the for loop
-            if( i==goal-1 && exitFlag==1) {
+            if( i == goal - 1 && exitFlag == 1) {
                 digitalWrite(LEDPinArray[i-1],HIGH);
                 exitFlag=0;
                 goal--;
@@ -206,14 +226,20 @@ void Game() {
             // Else if the button was pressed but the goal is not reached, 
             // or if the button wasn't pressed but the goal is reached,
             // break the for loop and go to the Gameover "screen"
-            else if( (i != goal-1 && exitFlag==1) || (i == goal-1)) {
+            else if( (i != goal - 1 && exitFlag == 1) || (i == goal - 1)) {
                 exitFlag = 1;
                 break;
             } // End Else if
 
             // Blink the current LED
             digitalWrite(LEDPinArray[i],HIGH);
-            delay(delaySpeed);            
+
+            // Delay using millis
+            unsigned long currentMillis = millis();
+            while (millis() - currentMillis < delaySpeed) {
+                // Wait
+            }    
+
             digitalWrite(LEDPinArray[i],LOW);
         } // End For loop
 
@@ -233,8 +259,11 @@ void Game_Over() {
         digitalWrite(LEDPinArray[i], LOW);
     } // End For loop
 
-    // Pause
-    delay(500);
+    // Delay
+    unsigned long currentMillis = millis();
+    while (millis() - currentMillis < 500) {
+        // Wait
+    }
 
     do {
 
@@ -243,16 +272,22 @@ void Game_Over() {
             digitalWrite(LEDPinArray[i], HIGH);
         } // End For loop
 
-        // Pause
-        delay(500);
+        // Delay
+        while (millis() - currentMillis < 500) {
+            // Wait
+        }
+        currentMillis = millis();
 
         // Turn off LEDs
         for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], LOW);
         } // End For loop
 
-        // Pause
-        delay(500);
+        // Delay
+        while (millis() - currentMillis < 500) {
+            // Wait
+        }
+        currentMillis = millis();
     } while (exitFlag==0);
 } // End Game_Over
 
