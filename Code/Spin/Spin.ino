@@ -52,11 +52,11 @@ const byte LEDPinArray[LED_NUMBER]  =   {   LED_PIN_0,
 int buttonPlayState             =       0;                                      // Var for reading the pushbutton play status
 //int buttonResetState          =       0;                                      // Var for reading the pushbutton reset status
 int ledState                    =       0;                                      // Var for reading the led status
-int exitFlag                    =       0;                                      // Exit loop flag
 int score                       =       0;                                      // Score
 int goal                        =       10;                                     // Goal to reached
 float delaySpeed                =       0;                                      // Define the speed game
 float subtractValue             =       0;                                      // Define the subtract speed value
+bool exitFlag                   =       false;                                  // Exit loop flag
 
 ////////////////////////////////////////////////////////////////////////////////
 // Function Prototypes
@@ -124,7 +124,7 @@ void loop()
 void Start_Waiting() {
 
     // Set exitFlag to 0
-    exitFlag                    =   0;
+    exitFlag                    =   false;
     unsigned long currentMillis =   0;
     unsigned long ledMillis     =   0;
 
@@ -146,7 +146,7 @@ void Start_Waiting() {
             }
             ledMillis = millis();
         } // end for loop
-    } while(exitFlag == 0); // end while loop
+    } while(exitFlag == false); // end while loop
 } // End Start_Waiting
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -189,7 +189,7 @@ void Starting_Blink() {
 void Game() {
     
     // Set exitFlag to 0
-    exitFlag = 0;
+    exitFlag = false;
 
     // Set score to 0
     score = 0;
@@ -205,7 +205,7 @@ void Game() {
             
             // If score is reached, exit for loop and do while loop
             if( score == LED_NUMBER - 1 ) {
-                exitFlag = 1;
+                exitFlag = true;
                 break;
             } // End if
 
@@ -215,9 +215,9 @@ void Game() {
             // - Then, decrease the goal
             // - Then increase the score
             // - Then break the for loop
-            if( i == goal - 1 && exitFlag == 1) {
+            if( i == goal - 1 && exitFlag == true) {
                 digitalWrite(LEDPinArray[i - 1], HIGH);
-                exitFlag = 0;
+                exitFlag = false;
                 goal--;
                 score++;
                 break;
@@ -226,8 +226,8 @@ void Game() {
             // Else if the button was pressed but the goal is not reached, 
             // or if the button wasn't pressed but the goal is reached,
             // break the for loop and go to the Gameover "screen"
-            else if( (i != goal - 1 && exitFlag == 1) || (i == goal - 1)) {
-                exitFlag = 1;
+            else if( (i != goal - 1 && exitFlag == true) || (i == goal - 1)) {
+                exitFlag = true;
                 break;
             } // End Else if
 
@@ -244,7 +244,7 @@ void Game() {
         } // End For loop
 
         delaySpeed= delaySpeed - subtractValue;
-     } while (exitFlag == 0); // End do while loop
+     } while (exitFlag == false); // End do while loop
 } // End Game
 
 
@@ -252,7 +252,7 @@ void Game() {
 // Game_Over
 ////////////////////////////////////////////////////////////////////////////////
 void Game_Over() {
-    exitFlag = 0;
+    exitFlag = false;
 
     // Reset all LED statement
     for (int i = 0; i < LED_NUMBER; i++) {
@@ -288,7 +288,7 @@ void Game_Over() {
             // Wait
         }
         currentMillis = millis();
-    } while (exitFlag == 0);
+    } while (exitFlag == false);
 } // End Game_Over
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -305,5 +305,5 @@ float Get_Speed_Game(int minSpeed, int maxSpeed) {
 // Interrupt_Stop_Button
 ////////////////////////////////////////////////////////////////////////////////
 void Interrupt_Stop_Button() {
-    exitFlag = 1;
+    exitFlag = true;
 } // End Interrupt_Stop_Button
