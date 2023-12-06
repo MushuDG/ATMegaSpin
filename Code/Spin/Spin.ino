@@ -27,14 +27,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Constants
 ////////////////////////////////////////////////////////////////////////////////
-const int LED_NUMBER    =               10;                                     // TOTAL LED count
-const int MAX_SPEED     =               1500;                                   // Define max speed game
-const int MIN_SPEED     =               500;                                    // Define min speed game
+const int LED_NUMBER PROGMEM    =       10;                                     // TOTAL LED count
+const int MAX_SPEED PROGMEM     =       1500;                                   // Define max speed game
+const int MIN_SPEED PROGMEM     =       500;                                    // Define min speed game
 
 ////////////////////////////////////////////////////////////////////////////////
 // Array of LED Pins
 ////////////////////////////////////////////////////////////////////////////////
-const byte LEDPinArray[LED_NUMBER]    = {   LED_PIN_0,
+const byte LEDPinArray[LED_NUMBER]  =   {   LED_PIN_0,
                                             LED_PIN_1,
                                             LED_PIN_2,
                                             LED_PIN_3,
@@ -50,7 +50,7 @@ const byte LEDPinArray[LED_NUMBER]    = {   LED_PIN_0,
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 int buttonPlayState             =       0;                                      // Var for reading the pushbutton play status
-int buttonResetState            =       0;                                      // Var for reading the pushbutton reset status
+//int buttonResetState          =       0;                                      // Var for reading the pushbutton reset status
 int ledState                    =       0;                                      // Var for reading the led status
 int exitFlag                    =       0;                                      // Exit loop flag
 int score                       =       0;                                      // Score
@@ -124,9 +124,9 @@ void loop()
 void Start_Waiting() {
 
     // Set exitFlag to 0
-    exitFlag=0;
-    unsigned long currentMillis = 0;
-    unsigned long ledMillis = 0;
+    exitFlag                    =   0;
+    unsigned long currentMillis =   0;
+    unsigned long ledMillis     =   0;
 
     // Do while the start button isn't pressed
     do {
@@ -204,8 +204,8 @@ void Game() {
         for (int i = 0; i < goal; i++) {
             
             // If score is reached, exit for loop and do while loop
-            if( score == LED_NUMBER-1 ) {
-                exitFlag=1;
+            if( score == LED_NUMBER - 1 ) {
+                exitFlag = 1;
                 break;
             } // End if
 
@@ -216,8 +216,8 @@ void Game() {
             // - Then increase the score
             // - Then break the for loop
             if( i == goal - 1 && exitFlag == 1) {
-                digitalWrite(LEDPinArray[i-1],HIGH);
-                exitFlag=0;
+                digitalWrite(LEDPinArray[i - 1], HIGH);
+                exitFlag = 0;
                 goal--;
                 score++;
                 break;
@@ -232,7 +232,7 @@ void Game() {
             } // End Else if
 
             // Blink the current LED
-            digitalWrite(LEDPinArray[i],HIGH);
+            digitalWrite(LEDPinArray[i], HIGH);
 
             // Delay using millis
             unsigned long currentMillis = millis();
@@ -243,8 +243,8 @@ void Game() {
             digitalWrite(LEDPinArray[i],LOW);
         } // End For loop
 
-        delaySpeed=delaySpeed-subtractValue;
-     } while (exitFlag==0); // End do while loop
+        delaySpeed= delaySpeed - subtractValue;
+     } while (exitFlag == 0); // End do while loop
 } // End Game
 
 
@@ -268,7 +268,7 @@ void Game_Over() {
     do {
 
         // Turn on LEDs
-        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++) {
+        for (int i = (LED_NUMBER - score - 1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], HIGH);
         } // End For loop
 
@@ -279,7 +279,7 @@ void Game_Over() {
         currentMillis = millis();
 
         // Turn off LEDs
-        for (int i = (LED_NUMBER-score-1); i < LED_NUMBER; i++) {
+        for (int i = (LED_NUMBER - score - 1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], LOW);
         } // End For loop
 
@@ -288,7 +288,7 @@ void Game_Over() {
             // Wait
         }
         currentMillis = millis();
-    } while (exitFlag==0);
+    } while (exitFlag == 0);
 } // End Game_Over
 
 ////////////////////////////////////////////////////////////////////////////////
