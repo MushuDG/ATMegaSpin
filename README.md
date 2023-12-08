@@ -93,6 +93,9 @@ A LED game where the player has to press a button at the right moment to reach a
 |    | Aprox. Total                                                                                    |          |          |             | Fr. 62.69    |
 |    | Aprox. Total/pcs                                                                                |          |          |             | Fr. 12.54    |
 
+# Prototype
+![Prototype](https://github.com/MushuDG/ATMegaSpin/blob/main/Pictures/README_Pictures/Prototype/prototype.png)
+
 # Installation
 Before you can connect the [ATMega328P](https://en.wikipedia.org/wiki/ATmega328) microcontroller to the circuit, it's necessary to burn the bootloader of the chip. Once the bootloader is burned, the program can be uploaded to it.
 
