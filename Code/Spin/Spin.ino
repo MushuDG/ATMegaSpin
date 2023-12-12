@@ -21,7 +21,7 @@
 #define LED_PIN_7                       11                                      // LED 7
 #define LED_PIN_8                       12                                      // LED 8
 #define LED_PIN_9                       13                                      // LED 9
-#define buttonPinPlay                   3                                       // BUTTON PLAY
+#define BUTTON_PIN_PLAY                   3                                       // BUTTON PLAY
 //#define buttonPinReset                5                                       // BUTTON RESET
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -84,11 +84,11 @@ void setup()
     //Serial.begin(9600);
 
     // Set buttons as input
-    pinMode(buttonPinPlay, INPUT);
+    pinMode(BUTTON_PIN_PLAY, INPUT);
     //pinMode(buttonPinReset, INPUT);
 
-    // Create and attach interrupt function (Interrupt_Stop_Button) to buttonPinPlay when pin Rising
-    attachInterrupt(digitalPinToInterrupt(buttonPinPlay), Interrupt_Stop_Button, RISING);
+    // Create and attach interrupt function (Interrupt_Stop_Button) to BUTTON_PIN_PLAY when pin Rising
+    attachInterrupt(digitalPinToInterrupt(BUTTON_PIN_PLAY), Interrupt_Stop_Button, RISING);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -305,5 +305,17 @@ float Get_Speed_Game(int minSpeed, int maxSpeed) {
 // Interrupt_Stop_Button
 ////////////////////////////////////////////////////////////////////////////////
 void Interrupt_Stop_Button() {
+
+    //Disable temporary interruption
+    detachInterrupt(digitalPinToInterrupt(BUTTON_PIN_PLAY)); 
     exitFlag = true;
+    unsigned long buttonReleaseTime = millis();
+    
+    // Wait until the button is released to avoid repeated triggers
+    while(digitalRead(BUTTON_PIN_PLAY) == HIGH && millis() - buttonReleaseTime < 1000) {
+        // Wait until the button is released or one second has passed
+    }
+
+    // Reactivate the interrupt
+    attachInterrupt(digitalPinToInterrupt(BUTTON_PIN_PLAY), Interrupt_Stop_Button, RISING); 
 } // End Interrupt_Stop_Button
