@@ -265,8 +265,7 @@ void Game_Over() {
         // Wait
     }
 
-    do {
-
+    for (int i = 0; i < 3; i++) {
         // Turn on LEDs
         for (int i = (LED_NUMBER - score - 1); i < LED_NUMBER; i++) {
             digitalWrite(LEDPinArray[i], HIGH);
@@ -288,7 +287,8 @@ void Game_Over() {
             // Wait
         }
         currentMillis = millis();
-    } while (exitFlag == false);
+    }
+
 } // End Game_Over
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -305,17 +305,5 @@ float Get_Speed_Game(int minSpeed, int maxSpeed) {
 // Interrupt_Stop_Button
 ////////////////////////////////////////////////////////////////////////////////
 void Interrupt_Stop_Button() {
-
-    //Disable temporary interruption
-    detachInterrupt(digitalPinToInterrupt(BUTTON_PIN_PLAY)); 
     exitFlag = true;
-    unsigned long buttonReleaseTime = millis();
-    
-    // Wait until the button is released to avoid repeated triggers
-    while(digitalRead(BUTTON_PIN_PLAY) == HIGH && millis() - buttonReleaseTime < 1000) {
-        // Wait until the button is released or one second has passed
-    }
-
-    // Reactivate the interrupt
-    attachInterrupt(digitalPinToInterrupt(BUTTON_PIN_PLAY), Interrupt_Stop_Button, RISING); 
 } // End Interrupt_Stop_Button
