@@ -21,7 +21,7 @@
 #define LED_PIN_7                       11                                      // LED 7
 #define LED_PIN_8                       12                                      // LED 8
 #define LED_PIN_9                       13                                      // LED 9
-#define BUTTON_PIN_PLAY                   3                                       // BUTTON PLAY
+#define BUTTON_PIN_PLAY                 3                                       // BUTTON PLAY
 //#define buttonPinReset                5                                       // BUTTON RESET
 
 ////////////////////////////////////////////////////////////////////////////////
